@@ -10,14 +10,9 @@ using Bibliotheque.Models;
 
 namespace Bibliotheque.Controllers
 {
-    public class BooksController : Controller
+    public class BooksController(AppDbContext context) : Controller
     {
-        private readonly AppDbContext _context;
-
-        public BooksController(AppDbContext context)
-        {
-            _context = context;
-        }
+        private readonly AppDbContext _context = context;
 
         // GET: Books
         public async Task<IActionResult> Index()
